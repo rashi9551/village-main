@@ -250,5 +250,5 @@ module.exports={index,
     otp,
     verifyotp,
     resendotp,
-    forgotpassword
+    forgotpassword,
 }
