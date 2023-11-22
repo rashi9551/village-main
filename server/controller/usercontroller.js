@@ -200,8 +200,8 @@ const resendotp=async(req,res)=>{
 }
 const login=async (req,res)=>{
     try {
-        const email = req.body.email;
-        const user = await userModel.findOne({ email: email });
+        const username = req.body.username;
+        const user = await userModel.findOne({ username: username });
 
         // Check if the user exists
         if (!user) {
@@ -210,7 +210,7 @@ const login=async (req,res)=>{
 
         const passwordmatch = await bcrypt.compare(req.body.password, user.password);
 
-        if (passwordmatch ) {
+        if (passwordmatch && !user.status) {
             // Authentication successful
             req.session.userId = user._id;
             req.session.username = user.username;
@@ -223,8 +223,21 @@ const login=async (req,res)=>{
     } catch (error) {
         // Error occurred, could be due to user not found or other issues
         res.render("signin",{username:"incorrect username"});
+       
     }
 
+}
+const forgotpassword=async (req,res)=>{
+    try{
+        res.render("forgot")
+
+    }
+    catch
+    {
+        res.status(200).send('error occured')
+
+
+    }
 }
 
 
@@ -236,5 +249,6 @@ module.exports={index,
     login,
     otp,
     verifyotp,
-    resendotp
+    resendotp,
+    forgotpassword
 }

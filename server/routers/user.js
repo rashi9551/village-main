@@ -13,6 +13,7 @@ usrouter.get("/otp",usercontroller.otp)
 usrouter.post("/verifyotp",usercontroller.verifyotp)
 usrouter.post("/resendotp",usercontroller.resendotp)
 usrouter.post("/login",usercontroller.login)
+usrouter.get("/forgotpassword",usercontroller.forgotpassword)
 
 
 

@@ -24,11 +24,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
             padding: 50px 150px;
         }
-        .forgot{
-            text-decoration: none;
-            justify-content: center;
-            display: flex;
-        }
         .alter{
             color: red;
         }
@@ -75,27 +70,13 @@
 </head>
 <body>
     <div class="container">
-        <h2>LOGIN PAGE</h2>
+        <h2>Forgot Password</h2>
         <form action="/login" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter Usernname" required>
-            <% if(locals.username){%>
-                <div class="alter text-danger text-start"><%=username%></div>
-    
-            <%}%>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
-            <% if(locals.passworderror){%>
-                <div class="alter text-danger text-start"><%=passworderror%></div>
-    
-            <%}%>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" required>
             <input type="submit" value="Login">
         </form>
-        <a href="/forgotpassword" class="forgot">Forgot password..</a><br>
-        <div class="signup-link">
-            <p style="color: black;">Don't have an account? <a href="/signup">Sign up</a></p>
-        </div>
+        
     </div>
 </body>
 </html>
